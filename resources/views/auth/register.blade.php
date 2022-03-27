@@ -40,6 +40,25 @@
                                     </div>
                                 </div>
 
+
+                                <div class="form-group row">
+                                    <label for="phone" class="col-md-4 col-form-label text-md-right">Phone</label>
+                                    <div class="col-md-6">
+                                        <input id="phone" type="text" class="form-control" name="phone" value="" required="" autofocus="">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label for="phone" class="col-md-4 col-form-label text-md-right">Register As</label>
+                                    <div class="col-md-6">
+                                        <select name="register_as" class="form-control" id="registeras">
+                                            <option value="CST">Customer</option>
+                                            <option value="SVP">Service Provider</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="form-group row">
                                     <label for="password"
                                         class="col-md-4 col-form-label text-md-right">Password</label>
