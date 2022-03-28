@@ -51,6 +51,7 @@
                                                 <th>Image</th>
                                                 <th>Category Title</th>
                                                 <th>Slug</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,6 +64,11 @@
                                                     </td>
                                                     <td>{{ $category->category_title }}</td>
                                                     <td>{{ $category->slug }}</td>
+                                                    <td>
+                                                        <a href="{{ route('admin.edit-service-category',['category_id'=>$category->id]) }}" class="">
+                                                            <i class="fa fa-edit fa-2x text-info"></i>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
