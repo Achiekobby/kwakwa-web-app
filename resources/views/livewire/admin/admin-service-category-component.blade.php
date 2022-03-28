@@ -44,6 +44,11 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
+                                    @if (Session::has('message'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ Session::get('message') }}
+                                        </div>
+                                    @endif
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
@@ -68,7 +73,11 @@
                                                         <a href="{{ route('admin.edit-service-category',['category_id'=>$category->id]) }}" class="">
                                                             <i class="fa fa-edit fa-2x text-info"></i>
                                                         </a>
+                                                        <a onclick="confirm('Are you sure you want to delete this service category!') ||event.stopImmediatePropagation()" href="#" wire:click="deleteServiceCategory({{ $category->id }})" class="" style="margin-left:10px;">
+                                                            <i class="fa fa-trash fa-2x text-danger"></i>
+                                                        </a>
                                                     </td>
+
                                                 </tr>
                                             @endforeach
                                         </tbody>
