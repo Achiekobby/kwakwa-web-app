@@ -35,12 +35,12 @@
                                     <tr>
                                         <td>{{ $category->id }}</td>
                                         <td>
-                                            <img src="{{ asset('assets/images/categories')}}/{{ $category->category_image }}" width="60" alt="">
+                                            <img src="{{ asset('images/categories')}}/{{ $category->category_image }}" width="60" alt="">
                                         </td>
                                         <td>{{ $category->category_title }}</td>
                                         <td>{{ $category->slug }}</td>
                                     </tr>
-                                    
+
                                     @endforeach
                                 </tbody>
                             </table>
