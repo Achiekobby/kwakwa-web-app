@@ -70,6 +70,9 @@
                                                     <td>{{ $category->category_title }}</td>
                                                     <td>{{ $category->slug }}</td>
                                                     <td>
+                                                        <a href="{{ route('admin.services_by_category',['category_slug'=>$category->slug]) }}" class="" style="margin-right:10px">
+                                                            <i class="fa fa-list fa-2x text-warning"></i>
+                                                        </a>
                                                         <a href="{{ route('admin.edit-service-category',['category_id'=>$category->id]) }}" class="">
                                                             <i class="fa fa-edit fa-2x text-info"></i>
                                                         </a>
