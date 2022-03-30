@@ -38,8 +38,8 @@
                                             All Service Categories
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="#"
-                                                class="btn btn-info pull-right">Add New</a>
+                                            <a href="{{ route('admin.service_add') }}"
+                                                class="btn btn-info pull-right">Add New Service</a>
                                         </div>
                                     </div>
                                 </div>
@@ -87,10 +87,10 @@
 
                                                     <td>{{ $service->created_at }}</td>
                                                     <td>
-                                                        <a href="#" class="">
+                                                        <a href="{{ route('admin.service_edit',['service_slug'=>$service->slug]) }}" class="">
                                                             <i class="fa fa-edit fa-2x text-info"></i>
                                                         </a>
-                                                        <a href="#"  class="" style="margin-left:10px;">
+                                                        <a onclick= "confirm('Are you sure you want to delete this service') || event.stopImmediatePropagation()" href="#" class="" wire:click.prevent="deleteService({{ $service->id }})" style="margin-left:10px;">
                                                             <i class="fa fa-trash fa-2x text-danger"></i>
                                                         </a>
                                                     </td>
