@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Service::factory(20)->create();
 
         // The below is for seeder class
-        $this->call([ServiceCategorySeeder::class]);
+        // $this->call([ServiceCategorySeeder::class]);
     }
 }
