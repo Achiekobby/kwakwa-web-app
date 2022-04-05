@@ -55,7 +55,7 @@
 
                 <ul class="collapse">
                     <li class="title">
-                        <a href="index.php.html"><img src="{{asset('images/logo.png')}}"></a>
+                        <a href="/"><img src="{{asset('images/logo.png')}}"></a>
                     </li>
                     <li> <a href="{{ route('home.service-categories') }}">Service Categories</a>
                         {{-- <ul class="drop-down one-column hover-fade">
