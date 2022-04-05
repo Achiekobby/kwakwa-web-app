@@ -141,12 +141,13 @@
                                         <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                         <li><a href="{{ route('admin.service-categories') }}">Services Categories</a></li>
                                         <li><a href="{{ route('admin.services') }}">All Services</a></li>
+                                        <li><a href="{{ route('admin.slider') }}">Manage Slider</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                     </ul>
                                 </li>
                             @elseif(Auth::user()->utype==="SVP")
                                 {{-- Service Provider Links --}}
-                                 <li class="login-form"> <a href="#" title="Register">My Account (Service Provider)</a>
+                                <li class="login-form"> <a href="#" title="Register">My Account (Service Provider)</a>
                                     <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{ route('s-provider.dashboard') }}">Dashboard</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
@@ -154,7 +155,7 @@
                                 </li>
                             @else
                                 {{-- Customer Links --}}
-                                 <li class="login-form"> <a href="#" title="Register">My Account (Customer)</a>
+                                <li class="login-form"> <a href="#" title="Register">My Account (Customer)</a>
                                     <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{ route('customer.dashboard') }}">Dashboard</a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
@@ -319,6 +320,7 @@
             });
         });
     </script>
+    @stack('scripts')
     @livewireScripts
 </body>
 </html>

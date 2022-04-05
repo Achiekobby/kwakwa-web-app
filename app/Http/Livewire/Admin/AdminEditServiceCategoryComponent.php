@@ -16,6 +16,7 @@ class AdminEditServiceCategoryComponent extends Component
     public $slug;
     public $image;
     public $newimage;
+    public $featured;
 
     public function mount($category_id){
         $s_category = ServiceCategory::find($category_id);
@@ -24,6 +25,7 @@ class AdminEditServiceCategoryComponent extends Component
         $this->title        = $s_category->category_title;
         $this->slug         = $s_category->slug;
         $this->image        = $s_category->category_image;
+        $this->feature      = $s_category->featured;
     }
 
     public function generateSlug(){
@@ -58,6 +60,7 @@ class AdminEditServiceCategoryComponent extends Component
         $s_category = ServiceCategory::find($this->category_id);
         $s_category->category_title = $this->title;
         $s_category->slug = $this->slug;
+        $s_category->featured = $this->featured;
 
         if($this->newimage){
             $newImageName = Carbon::now()->timestamp.'.'.$newimage->extension();

@@ -14,12 +14,12 @@
         <div class="bg_parallax image_02_parallax"></div>
         <div class="opacy_bg_02">
             <div class="container">
-                <h1>Service Categories</h1>
+                <h1>All Slides</h1>
                 <div class="crumbs">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li>/</li>
-                        <li>Service Categories</li>
+                        <li>All Slides</li>
                     </ul>
                 </div>
             </div>
@@ -35,11 +35,11 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            All Service Categories
+                                            All Slides
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="{{ route('admin.add-service-category') }}"
-                                                class="btn btn-info pull-right">Add New</a>
+                                            <a href="{{ route('admin.add_slide') }}"
+                                                class="btn btn-info pull-right">Add New Slide</a>
                                         </div>
                                     </div>
                                 </div>
@@ -54,35 +54,33 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Image</th>
-                                                <th>Category Title</th>
-                                                <th>Slug</th>
-                                                <th>Featured</th>
+                                                <th>Title</th>
+                                                <th>Status</th>
+                                                <th>Created At</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($categories as $category)
+                                            @foreach ($slides as $slide)
                                                 <tr>
-                                                    <td>{{ $category->id }}</td>
+                                                    <td>{{ $slide->id }}</td>
                                                     <td>
-                                                        <img src="{{ asset('images/categories') }}/{{ $category->category_image }}"
-                                                            width="60" alt="">
+                                                        <img src="{{ asset('images/sliders') }}/{{ $slide->image }}"
+                                                            width="100" height="80" style="border-radius: 5px; object-fit: cover" alt="">
                                                     </td>
-                                                    <td>{{ $category->category_title }}</td>
-                                                    <td>{{ $category->slug }}</td>
-                                                    @if ($category->featured)
-                                                        <td class="text-success">Yes</td>
+                                                    <td>{{ $slide->title }}</td>
+                                                    @if (!$slide->status)
+                                                        <td class="text-danger">Inactive</td>
                                                     @else
-                                                        <td class="text-danger">No</td>
+                                                        <td class="text-success">Active</td>
                                                     @endif
+
+                                                    <td>{{ $slide->created_at }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.services_by_category',['category_slug'=>$category->slug]) }}" class="" style="margin-right:10px">
-                                                            <i class="fa fa-list fa-2x text-warning"></i>
-                                                        </a>
-                                                        <a href="{{ route('admin.edit-service-category',['category_id'=>$category->id]) }}" class="">
+                                                        <a href="{{ route('admin.edit_slide',['slide_id'=>$slide->id]) }}" class="">
                                                             <i class="fa fa-edit fa-2x text-info"></i>
                                                         </a>
-                                                        <a onclick="confirm('Are you sure you want to delete this service category!') ||event.stopImmediatePropagation()" href="#" wire:click="deleteServiceCategory({{ $category->id }})" class="" style="margin-left:10px;">
+                                                        <a onclick= "confirm('Are you sure you want to delete this slide') || event.stopImmediatePropagation()" href="#" class="" wire:click.prevent="deleteSlide({{ $slide->id }})" style="margin-left:10px;">
                                                             <i class="fa fa-trash fa-2x text-danger"></i>
                                                         </a>
                                                     </td>
@@ -91,7 +89,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    {{ $categories->links() }}
+                                    {{ $slides->links() }}
                                 </div>
                             </div>
                         </div>
@@ -100,3 +98,4 @@
             </div>
         </div>
 </div>
+

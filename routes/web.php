@@ -6,6 +6,8 @@ use App\Http\Livewire\ServiceCategoriesComponent ;
 use App\Http\Livewire\ServicesByCategoryComponent ;
 use App\Http\Livewire\ServiceDetailsComponent;
 
+use App\Http\Controllers\SearchController;
+
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
@@ -14,6 +16,10 @@ use App\Http\Livewire\Admin\AdminServicesComponent;
 use App\Http\Livewire\Admin\AdminAddServiceComponent;
 use App\Http\Livewire\Admin\AdminEditServiceComponent;
 use App\Http\Livewire\Admin\AdminServicesByCategoryComponent;
+
+use App\Http\Livewire\Admin\AdminSliderComponent;
+use App\Http\Livewire\Admin\AdminAddSliderComponent;
+use App\Http\Livewire\Admin\AdminEditSliderComponent;
 
 use App\Http\Livewire\ServiceProvider\ServiceProviderDashboardComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
@@ -53,6 +59,13 @@ Route::middleware(['auth:sanctum', 'verified','isAdmin'])->group(function(){
     Route::get('/admin/add-service-categories',AdminAddServiceCategoryComponent::class)->name('admin.add-service-category');
     Route::get('/admin/service-categories',AdminServiceCategoryComponent::class)->name('admin.service-categories');
 
+    //Routes for the admin sliders
+
+    Route::get('admin/slider/{slide_id}/edit', AdminEditSliderComponent::class)->name('admin.edit_slide');
+    Route::get('/admin/slider/add', AdminAddSliderComponent::class)->name('admin.add_slide');
+    Route::get('admin/slider', AdminSliderComponent::class)->name('admin.slider');
+
+
 
 
 });
@@ -62,4 +75,7 @@ Route::get('/',HomeComponent::class)->name('home');
 Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.service-categories');
 Route::get('/{category_slug}/services', ServicesByCategoryComponent::class)->name('home.services_by_category');
 Route::get('/service/{service_slug}', ServiceDetailsComponent::class)->name('home.service_details');
+
+
+Route::get('/autocomplete',[SearchController::class, "autocomplete"])->name('autocomplete');
 
