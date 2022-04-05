@@ -32,16 +32,16 @@
                             @foreach ($s_category->services as $service )
                                     <div class="col-xs-6 col-sm-4 col-md-3 nature hsgrids"
                                     style="padding-right: 5px;padding-left: 5px;">
-                                    <a class="g-list" href="service-details/ac-wet-servicing.html">
+                                    <a class="g-list" href="{{ route('home.service_details',['service_slug' => $service->slug]) }}">
                                         <div class="img-hover">
                                             <img src="{{ asset('images/services/thumbnails') }}/{{ $service->thumbnail }}" alt="{{ $service->service_title }}"
                                                 class="img-responsive">
                                         </div>
                                         <div class="info-gallery">
-                                            <h3>{{ $service->service_title }}</h3>
+                                            <h3>{{ $service->service_name }}</h3>
                                             <hr class="separator">
-                                            <p>{{ $service->service_title }}</p>
-                                            <div class="content-btn"><a href="service-details/ac-wet-servicing.html"
+                                            <p>{{ $service->service_name }}</p>
+                                            <div class="content-btn"><a href="{{ route('home.service_details',['service_slug' => $service->slug]) }}"
                                                     class="btn btn-primary">Book Now</a></div>
                                             <div class="price"><span>&#36;</span><b>From</b>{{ $service->price }}</div>
                                         </div>

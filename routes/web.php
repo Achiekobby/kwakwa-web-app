@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ServiceCategoriesComponent ;
 use App\Http\Livewire\ServicesByCategoryComponent ;
+use App\Http\Livewire\ServiceDetailsComponent;
 
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
@@ -60,4 +61,5 @@ Route::middleware(['auth:sanctum', 'verified','isAdmin'])->group(function(){
 Route::get('/',HomeComponent::class)->name('home');
 Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.service-categories');
 Route::get('/{category_slug}/services', ServicesByCategoryComponent::class)->name('home.services_by_category');
+Route::get('/service/{service_slug}', ServiceDetailsComponent::class)->name('home.service_details');
 
