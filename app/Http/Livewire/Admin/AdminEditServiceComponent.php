@@ -30,6 +30,7 @@ class AdminEditServiceComponent extends Component
 
     public $newThumbnail;
     public $newImage;
+    public $featured;
 
 
 
@@ -51,6 +52,7 @@ class AdminEditServiceComponent extends Component
         $this->exclusion           = str_replace("\n","|",trim($old_service->exclusion));
         $this->tagline             = $old_service->tagline;
         $this->discount_type       = $old_service->discount_type;
+        $this->featured            = $old_service->featured;
 
     }
 
@@ -118,6 +120,7 @@ class AdminEditServiceComponent extends Component
         $service->service_description = $this->service_description;
         $service->inclusion = str_replace("\n","|", trim($this->inclusion));
         $service->exclusion = str_replace("\n","|", trim($this->exclusion));
+        $service->featured = $this->featured;
 
         //Handling the thumbnail
         if($this->newThumbnail){

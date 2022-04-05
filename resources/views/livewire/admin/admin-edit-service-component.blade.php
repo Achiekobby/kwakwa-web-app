@@ -89,6 +89,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="featured" class="control-label col-sm-3">Featured:</label>
+                                        <div class="col-sm-9">
+                                            <select name="" wire:model="featured" id="" class="form-control">
+                                                <option value="">Select if Featured</option>
+                                                <option value="0">No</option>
+                                                <option value="1">yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="service_category" class="control-label col-sm-3">Service Category:</label>
                                         <div class="col-sm-9">
                                             <select class="form-control" wire:model="service_category">

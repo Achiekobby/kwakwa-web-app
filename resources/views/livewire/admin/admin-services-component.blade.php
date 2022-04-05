@@ -58,6 +58,7 @@
                                                 <th>Category</th>
                                                 <th>Price</th>
                                                 <th>Status</th>
+                                                <th>Featured</th>
                                                 <th>Created At</th>
                                                 <th>Action</th>
                                             </tr>
@@ -79,9 +80,16 @@
                                                     <td>{{ $service->price }}</td>
                                                     <td>
                                                         @if ($service->status)
-                                                        <div class="badge">Active</div>
+                                                        <div class="text-success">Active</div>
                                                         @else
-                                                        <div class="badge">Inactive</div>
+                                                        <div class="text-danger">Inactive</div>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if(!$service->featured)
+                                                        <span class="text-danger">No</span>
+                                                        @else
+                                                            <div class="text-success">Yes</div>
                                                         @endif
                                                     </td>
 
