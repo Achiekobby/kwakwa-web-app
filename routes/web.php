@@ -24,6 +24,7 @@ use App\Http\Livewire\Admin\AdminEditSliderComponent;
 
 use App\Http\Livewire\ServiceProvider\ServiceProviderDashboardComponent;
 use App\Http\Livewire\ServiceProvider\ServiceProviderProfileComponent;
+use App\Http\Livewire\ServiceProvider\ServiceProviderEditProfileComponent;
 
 
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
@@ -47,6 +48,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 // FOR SERVICE PROVIDER
 Route::middleware(['auth:sanctum', 'verified','isServiceProvider'])->group(function () {
+    Route::get('service-provider/profile/edit',ServiceProviderEditProfileComponent::class)->name('s-provider.edit_profile');
     Route::get('service-provider/profile', ServiceProviderProfileComponent::class)->name('s-provider.profile');
     Route::get('/service-provider/dashboard',ServiceProviderDashboardComponent::class)->name('s-provider.dashboard');
 });

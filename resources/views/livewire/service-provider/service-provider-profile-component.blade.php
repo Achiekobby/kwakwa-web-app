@@ -49,11 +49,12 @@
                                         <p><b>Phone: </b> {{ Auth::user()->phone }}</p>
                                         <p><b>City: </b> {{ $service_provider->city }}</p>
                                         <p><b>Service Category: </b>
-                                            @if ($service_provider->service_provider_id)
+                                            @if ($service_provider->service_category_id)
                                             {{ $service_provider->service_category->category_title }}
                                             @endif
                                             </p>
                                         <p><b>Service Locations: </b> {{ $service_provider->service_locations }}</p>
+                                        <a href="{{ route('s-provider.edit_profile') }}" class="btn btn-primary pull-right">Edit Profile</a>
                                     </div>
                                 </div>
                             </div>
