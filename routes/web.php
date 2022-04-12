@@ -5,6 +5,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ServiceCategoriesComponent ;
 use App\Http\Livewire\ServicesByCategoryComponent ;
 use App\Http\Livewire\ServiceDetailsComponent;
+use App\Http\Livewire\ChangeLocationComponent;
 
 use App\Http\Controllers\SearchController;
 
@@ -22,6 +23,9 @@ use App\Http\Livewire\Admin\AdminAddSliderComponent;
 use App\Http\Livewire\Admin\AdminEditSliderComponent;
 
 use App\Http\Livewire\ServiceProvider\ServiceProviderDashboardComponent;
+use App\Http\Livewire\ServiceProvider\ServiceProviderProfileComponent;
+
+
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 
 /*
@@ -43,6 +47,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 // FOR SERVICE PROVIDER
 Route::middleware(['auth:sanctum', 'verified','isServiceProvider'])->group(function () {
+    Route::get('service-provider/profile', ServiceProviderProfileComponent::class)->name('s-provider.profile');
     Route::get('/service-provider/dashboard',ServiceProviderDashboardComponent::class)->name('s-provider.dashboard');
 });
 
@@ -78,4 +83,6 @@ Route::get('/service/{service_slug}', ServiceDetailsComponent::class)->name('hom
 
 
 Route::get('/autocomplete',[SearchController::class, "autocomplete"])->name('autocomplete');
+
+Route::get('/change-location',ChangeLocationComponent::class)->name('home.change_location');
 
